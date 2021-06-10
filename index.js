@@ -20,12 +20,11 @@ function game(){
         return computerSelection;
         };
         computerPlay();
-        // playerSelection = button.id;
-        const winning = `congrats! You win this round! ${playerSelection} beats ${computerSelection}`; // win, lose, and tie messages
-        const losing = `Aww, you lost this round! ${computerSelection} beat ${playerSelection}`;
-        const tie = `It's a tie! ${playerSelection} = ${computerSelection}`;
+        const winning = `congrats! You win this round! ${playerSelection.innerHtml} beats ${computerSelection}`; // win, lose, and tie messages
+        const losing = `Aww, you lost this round! ${computerSelection} beat ${playerSelection.innerHtml}`;
+        const tie = `It's a tie! ${button.textContent} = ${computerSelection}`;
         
-        console.log("Player: ", playerSelection);
+        console.log("Player: ", playerSelection.textContent);
         console.log("Computer: ", computerSelection.toUpperCase());
         
         if (playerSelection === rock){ // assign values to choices to compare
