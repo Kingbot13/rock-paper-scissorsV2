@@ -69,6 +69,13 @@ function game(){
 
         scoreReport.textContent = `Player Score: ${playerScore}  Computer Score: ${computerScore}`; // display scores
         gameResults.appendChild(scoreReport);
+        if (playerScore === 5){ // announce win, lose, or tie message for the entire game
+            scoreKeeper.textContent = "You are the ultimate champion!";
+        } else if (computerScore === 5) {
+            scoreKeeper.textContent = "You lose the game!";
+        } else {
+            scoreKeeper.textContent = "Keep Playing!";
+        };
     };
 
     
@@ -83,13 +90,6 @@ function game(){
     
     
     
-    if (playerScore === 5){ // announce win, lose, or tie message for the entire game
-        scoreKeeper.textContent = "You are the ultimate champion!";
-    } else if (computerScore === 5) {
-        scoreKeeper.textContent = "You lose the game!";
-    } else {
-        scoreKeeper.textContent = "Keep Playing!";
-    };
 
     
     gameResults.appendChild(roundResults);
