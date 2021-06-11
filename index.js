@@ -3,9 +3,9 @@ function game(){
     let playerScore = 0; // store scores
     let computerScore = 0;
     
-    const rock = document.querySelector("#rock");
-    const paper = document.querySelector("#paper");
-    const scissors = document.querySelector("#scissors");
+    const rock = document.querySelector("#rock").innerHTML;
+    const paper = document.querySelector("#paper").innerHTML;
+    const scissors = document.querySelector("#scissors").innerHTML;
     
     const gameResults = document.querySelector("div"); // div container for diplaying results
     const scoreKeeper = document.createElement("p"); // add win, lose, or tie message to gameResults
@@ -20,14 +20,17 @@ function game(){
         return computerSelection;
         };
         computerPlay();
-        const winning = `congrats! You win this round! ${playerSelection.innerHtml} beats ${computerSelection}`; // win, lose, and tie messages
-        const losing = `Aww, you lost this round! ${computerSelection} beat ${playerSelection.innerHtml}`;
-        const tie = `It's a tie! ${button.textContent} = ${computerSelection}`;
+
+        // playerSelection = playerSelection.innerHTML;
+
+        const winning = `congrats! You win this round! ${playerSelection} beats ${computerSelection}`; // win, lose, and tie messages
+        const losing = `Aww, you lost this round! ${computerSelection} beat ${playerSelection}`;
+        const tie = `It's a tie! ${playerSelection} = ${computerSelection}`;
         
         console.log("Player: ", playerSelection.textContent);
         console.log("Computer: ", computerSelection.toUpperCase());
         
-        if (playerSelection === rock){ // assign values to choices to compare
+        if (playerSelection === "Rock"){ // assign values to choices to compare
             playerSelection = 3;
         } else if (playerSelection === scissors){
             playerSelection = 2;
@@ -69,7 +72,7 @@ function game(){
 
         scoreReport.textContent = `Player Score: ${playerScore}  Computer Score: ${computerScore}`; // display scores
         
-        console.log(scoreReport);
+        // console.log(scoreReport);
 
         gameResults.appendChild(roundResults);
     };
@@ -89,6 +92,7 @@ function game(){
     };
     
     gameResults.appendChild(scoreKeeper);
+    document.body.appendChild(gameResults);
     
 };
 
