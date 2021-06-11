@@ -71,11 +71,10 @@ function game(){
         let scoreReport = document.createElement("p");
 
         scoreReport.textContent = `Player Score: ${playerScore}  Computer Score: ${computerScore}`; // display scores
-        
-        // console.log(scoreReport);
-
-        gameResults.appendChild(roundResults);
+        gameResults.appendChild(scoreReport);
     };
+    
+    gameResults.appendChild(roundResults);
 
     const buttons = document.querySelectorAll("button");
     
