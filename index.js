@@ -6,7 +6,6 @@ function game(){
     const rock = document.querySelector("#rock").innerHTML;
     const paper = document.querySelector("#paper").innerHTML;
     const scissors = document.querySelector("#scissors").innerHTML;
-    
     const gameResults = document.querySelector("div"); // div container for diplaying results
     const scoreKeeper = document.createElement("p"); // add win, lose, or tie message to gameResults
     const roundResults = document.createElement("p"); // add win, lose, or tie message to current round
@@ -21,16 +20,14 @@ function game(){
         };
         computerPlay();
 
-        // playerSelection = playerSelection.innerHTML;
-
         const winning = `congrats! You win this round! ${playerSelection} beats ${computerSelection}`; // win, lose, and tie messages
         const losing = `Aww, you lost this round! ${computerSelection} beat ${playerSelection}`;
         const tie = `It's a tie! ${playerSelection} = ${computerSelection}`;
         
-        console.log("Player: ", playerSelection.textContent);
-        console.log("Computer: ", computerSelection.toUpperCase());
+        // console.log("Player: ", playerSelection.textContent);
+        // console.log("Computer: ", computerSelection.toUpperCase());
         
-        if (playerSelection === "Rock"){ // assign values to choices to compare
+        if (playerSelection === rock){ // assign values to choices to compare
             playerSelection = 3;
         } else if (playerSelection === scissors){
             playerSelection = 2;
@@ -73,26 +70,29 @@ function game(){
         scoreReport.textContent = `Player Score: ${playerScore}  Computer Score: ${computerScore}`; // display scores
         gameResults.appendChild(scoreReport);
     };
-    
-    gameResults.appendChild(roundResults);
 
+    
     const buttons = document.querySelectorAll("button");
     
     buttons.forEach((button) => { // add event listeners to buttons
         button.addEventListener("click", function(e){
-
+            
             playRound(button.innerHTML);
         });
     });
     
     
-
-    if (playerScore === 5){ // announce win, lose, or tie message for playing all 5 games
+    
+    if (playerScore === 5){ // announce win, lose, or tie message for the entire game
         scoreKeeper.textContent = "You are the ultimate champion!";
     } else if (computerScore === 5) {
         scoreKeeper.textContent = "You lose the game!";
+    } else {
+        scoreKeeper.textContent = "Keep Playing!";
     };
+
     
+    gameResults.appendChild(roundResults);
     gameResults.appendChild(scoreKeeper);
     document.body.appendChild(gameResults);
     
