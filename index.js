@@ -80,7 +80,10 @@ function game(){
     const buttons = document.querySelectorAll("button");
     
     buttons.forEach((button) => { // add event listeners to buttons
-        button.addEventListener("click", playRound);
+        button.addEventListener("click", function(e){
+
+            playRound(button.innerHTML);
+        });
     });
     
     
